@@ -1,0 +1,52 @@
+<div class="container" style="width: 50%;">
+  <form #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="clientID" #clientID="ngModel" [(ngModel)]="service.formData.clientID"
+      class="form-control">
+    <div class="form-group">
+      <label>Name</label>
+      <input name="name" #name="ngModel" [(ngModel)]="service.formData.name" class="form-control"
+        placeholder="Please Enter Name" required>
+      <div class="validation-erros" *ngIf="name.invalid && name.touched">Name field is required</div>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control"
+        placeholder="Please Enter Address" required>
+      <div class="validation-erros" *ngIf="address.invalid && address.touched">Address field is required</div>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input name="city" #city="ngModel" [(ngModel)]="service.formData.city" class="form-control"
+        placeholder="Please Enter City" required>
+      <div class="validation-erros" *ngIf="city.invalid && city.touched">City field is required</div>
+    </div>
+    <div class="form-group">
+      <label>State</label>
+      <input name="state" #state="ngModel" [(ngModel)]="service.formData.state" class="form-control"
+        placeholder="Please Enter State" required>
+      <div class="validation-erros" *ngIf="state.invalid && state.touched">State field is required</div>
+    </div>
+    <div class="form-group">
+      <label>Post Code</label>
+      <input name="postCode" #postCode="ngModel" [(ngModel)]="service.formData.postCode" class="form-control"
+        placeholder="Please Enter Post Code" required pattern="[0-9]*">
+      <div class="validation-erros" *ngIf="postCode.errors?.required && postCode.touched">Post Code field is required
+      </div>
+      <div class="validation-erros" *ngIf="postCode.errors?.pattern && postCode.touched">Post Code Must be Numbers</div>
+    </div>
+    <div class="form-group">
+      <label>Country</label>
+      <input name="country" #country="ngModel" [(ngModel)]="service.formData.country" class="form-control"
+        placeholder="Please Enter Country" required>
+      <div class="validation-erros" *ngIf="country.invalid && country.touched">Country field is required</div>
+    </div>
+    <div class="form-group" style="text-align: right;">
+      <div class="btn-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary"><i class="far fa-save"></i>
+          Submit</button>
+        <button type="button" class="btn btn-danger" (click)="openHome('')"><i class="far fa-window-close"></i>
+          Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

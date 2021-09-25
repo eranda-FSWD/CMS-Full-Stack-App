@@ -1,0 +1,41 @@
+<div class="container">
+  <br />
+  <h3>Add New Client</h3>
+  <button type="button" class="btn btn-primary" (click)="openAdd('client')"><i class="fas fa-user-plus"></i> Add
+    Client</button>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ClientID</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Post Code</th>
+          <th>Country</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of service.list">
+          <td>{{client.clientID}}</td>
+          <td>{{client.name}}</td>
+          <td>{{client.address}}</td>
+          <td>{{client.city}}</td>
+          <td>{{client.state}}</td>
+          <td>{{client.postCode}}</td>
+          <td>{{client.country}}</td>
+          <td style="align-items: right">
+            <div class="btn-group">
+              <button type="button" class="btn btn-warning" (click)="openEdit(client)"><i class="far fa-edit"></i>
+                Edit</button>
+              <button type="button" class="btn btn-danger" (click)="onDelete(client.clientID)"><i
+                  class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
